@@ -11,8 +11,12 @@ https://www.rust-lang.org/zh-CN/tools/install
 IDE + 插件
 vim, helix, vs code, rustrover, zed
 
+zed
+lsp，没有网时本地二进制解决办法
+
 github管理(可选)
 注册自己的github
+使用github desktop
 
 文件夹管理
 mod, create, super
