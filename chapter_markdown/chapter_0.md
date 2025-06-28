@@ -7,7 +7,12 @@
 
 科学上网，chatgpt（可选）
 
------ 01 准备工作 ----- ----- ----- ----- -----
+----- 01 展示风格 ----- ----- ----- ----- -----
+总章节---本视频章节
+
+
+
+----- 02 准备工作 ----- ----- ----- ----- -----
 官方网站
 https://www.rust-lang.org/zh-CN/
 
@@ -35,7 +40,7 @@ github管理(可选)
 
 
 
------ 02 rust项目特性 ----- ----- ----- ----- -----
+----- 03 rust项目特性 ----- ----- ----- ----- -----
 cargo
 .toml .lock
 cargo run | cargo run --release 优化
@@ -48,7 +53,7 @@ cargo test | cargo test --release
 mod, create, super
 
 target
-target产物过大, 时间长(cargo check)，尽可能在同一个文件中写代码
+target产物过大, 时间长，cargo check，，尽可能在同一个文件中写代码
 debug模式下，一个surrealdb有2.2G
 release模式下，一个surrealdb有0.9G
 
