@@ -18,6 +18,7 @@
 //   either src/lib.rs, src/main.rs, a [lib] section, or [[bin]] section must be present
 
 mod book;
+mod web_teach;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
