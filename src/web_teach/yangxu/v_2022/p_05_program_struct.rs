@@ -32,3 +32,16 @@
 fn example_program() {
     println!("Hello, world!");
 }
+
+#[test]
+fn test_read_input() {
+    fn read_input<R: std::io::BufRead>(reader: R) -> String {
+        let mut lines = reader.lines();
+        lines.next().unwrap().unwrap().trim().to_string()
+    }
+
+    let input_data = b"hello world\n";
+    let cursor = std::io::Cursor::new(&input_data[..]);
+    let result = read_input(cursor);
+    assert_eq!(result, "hello world");
+}
