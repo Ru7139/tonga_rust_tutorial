@@ -35,6 +35,8 @@ fn example_program() {
 
 #[test]
 fn test_read_input() {
+    // fn read_input(reader: std::io::BufRead) -> String
+    // this is wrong, the trait can not be the params directly
     fn read_input<R: std::io::BufRead>(reader: R) -> String {
         let mut lines = reader.lines();
         lines.next().unwrap().unwrap().trim().to_string()
