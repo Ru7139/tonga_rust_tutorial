@@ -23,5 +23,18 @@ mod web_teach;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dbg!("Hello");
+
+    let a: u32 = (1..=10)
+        .step_by(1)
+        .into_iter()
+        .enumerate()
+        .map(|(index, value): (usize, u32)| {
+            let num = value.pow(index as u32);
+            println!("{}", num);
+            num
+        })
+        .sum();
+    dbg!(a);
+
     Ok(())
 }
