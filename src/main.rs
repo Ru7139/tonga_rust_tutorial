@@ -26,11 +26,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let a: u32 = (1..=10)
         .step_by(1)
+        .filter(|x| x % 2 == 1)
         .into_iter()
         .enumerate()
         .map(|(index, value): (usize, u32)| {
             let num = value.pow(index as u32);
-            println!("{}", num);
+            println!("{}, {}, {}", index, value, num);
             num
         })
         .sum();
