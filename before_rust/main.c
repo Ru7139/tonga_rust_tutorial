@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include "useful_struct.h"
 
@@ -6,6 +7,10 @@ struct Boxea {
     int index_y;
 };
 
+void display_boxed(struct Boxea object_box) {
+    printf("alpha ---> (%d,%d)", object_box.index_x, object_box.index_y);
+}
+
 int main() {
     int a = 0;
     int * p = &a;
@@ -13,7 +18,8 @@ int main() {
     printf("a = %d\n", a);
 
     struct Boxea alphae = { 50, 25 };
-    printf("alpha ---> (%d,%d)", alphae.index_x, alphae.index_y);
+    display_boxed(alphae);
+
 
     return 0;
 }
