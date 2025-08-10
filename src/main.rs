@@ -23,4 +23,8 @@ mod web_teach;
 fn main() {
     println!("{}", 20);
     dbg!(30 * 10); // let num = dbg!(10*10) + 10; // num == 110
+
+    let num1 = 100;
+    let num2 = -50;
+    let num3 = num1 + num2;
 }
