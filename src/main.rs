@@ -17,6 +17,8 @@
 //   no targets specified in the manifest
 //   either src/lib.rs, src/main.rs, a [lib] section, or [[bin]] section must be present
 
+use std::collections::VecDeque;
+
 mod book;
 mod web_teach;
 
@@ -27,4 +29,10 @@ fn main() {
     let num1 = 100;
     let num2 = -50;
     let num3 = num1 + num2;
+    let _ = num3;
+
+    let collect_1 = (0..100).map(|x| x * 2).collect::<VecDeque<u32>>();
+    for i in collect_1 {
+        println!("{}", i);
+    }
 }
