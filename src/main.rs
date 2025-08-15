@@ -31,8 +31,12 @@ fn main() {
     let num3 = num1 + num2;
     let _ = num3;
 
-    let collect_1 = (0..100).map(|x| x * 2).collect::<VecDeque<u32>>();
-    for i in collect_1 {
-        println!("{}", i);
-    }
+    #[rustfmt::skip]
+    let _collect_1 = (0..100)
+        .step_by(2)
+        .enumerate()
+        .map(|(x, y)| (x, y * 2))
+        .filter(|(_, y)| y % 10 == 0)
+        .map(|x| { println!("{} ---> {} ---> {}", x.0, x.1 / 2, x.1); x })
+        .collect::<Vec<(usize, u32)>>();
 }
