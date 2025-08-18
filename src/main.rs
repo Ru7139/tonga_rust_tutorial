@@ -33,10 +33,10 @@ fn main() {
 
     #[rustfmt::skip]
     let _collect_1 = (0..100)
-        .step_by(2)
+        .step_by(4)
         .enumerate()
         .map(|(x, y)| (x, y * 2))
         .filter(|(_, y)| y % 10 == 0)
-        .map(|x| { println!("{} ---> {} ---> {}", x.0, x.1 / 2, x.1); x })
+        .map(|x| { println!("{:3} ---> {:3} ---> {:3}", x.0, x.1 / 2, x.1); x })
         .collect::<Vec<(usize, u32)>>();
 }
