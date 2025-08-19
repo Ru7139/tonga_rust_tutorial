@@ -1,42 +1,29 @@
-// 保持main.rs，否则会有报错
-
-// rust-analyzer
-// cargo check failed to start: Cargo watcher failed, the command produced no valid metadata (exit code: ExitStatus(unix_wait_status(25856))):
-// error: failed to parse manifest at `/Users/chenzhi/Desktop/Rust/tonga_rust_tutorial/Cargo.toml`
-
-// Caused by:
-//   no targets specified in the manifest
-//   either src/lib.rs, src/main.rs, a [lib] section, or [[bin]] section must be present
-
-// Failed to load workspaces.
-
-// cargo run
-// error: failed to parse manifest at `/Users/chenzhi/Desktop/Rust/tonga_rust_tutorial/Cargo.toml`
-
-// Caused by:
-//   no targets specified in the manifest
-//   either src/lib.rs, src/main.rs, a [lib] section, or [[bin]] section must be present
-
-use std::collections::VecDeque;
-
-mod book;
-mod web_teach;
-
 fn main() {
-    println!("{}", 20);
-    dbg!(30 * 10); // let num = dbg!(10*10) + 10; // num == 110
+    let basic_type: (bool, char, isize, usize, f64) = (true, 'A', 50isize, 99usize, 3.14);
+    let fixed_array: [u8; 4] = [0, 1, 2, 3];
+    let mut mutable_array: [u8; 4] = [4, 5, 6, 7];
+    let u8_array_add_method = |x: usize| -> u8 { mutable_array[x] + fixed_array[x] };
+    mutable_array = std::array::from_fn(u8_array_add_method);
 
-    let num1 = 100;
-    let num2 = -50;
-    let num3 = num1 + num2;
-    let _ = num3;
+    fn consume_basic_to_vector<const N: usize>(
+        that_tuple: (bool, char, isize, usize, f64),
+        that_array: [u8; N],
+    ) -> Vec<u8> {
+        std::iter::once(that_tuple.0 as u8)
+            .chain((that_tuple.1 as u8).to_le_bytes())
+            .chain((that_tuple.2 as u8).to_le_bytes())
+            .chain((that_tuple.3 as u8).to_le_bytes())
+            .chain((that_tuple.4 as u8).to_le_bytes())
+            .chain(that_array.into_iter())
+            .collect()
+    }
+    let _that_basic_vector = consume_basic_to_vector(basic_type, mutable_array);
 
-    #[rustfmt::skip]
-    let _collect_1 = (0..100)
-        .step_by(4)
-        .enumerate()
-        .map(|(x, y)| (x, y * 2))
-        .filter(|(_, y)| y % 10 == 0)
-        .map(|x| { println!("{:3} ---> {:3} ---> {:3}", x.0, x.1 / 2, x.1); x })
-        .collect::<Vec<(usize, u32)>>();
+    let text_1: &'static str = "How did this work?";
+    let text_1_string: String = text_1.to_string() + " Just work!";
+
+    if text_1.chars().next().unwrap() as u8 == text_1_string.as_bytes()[0] {
+        // println!("{:?}", text_1_string);
+        dbg!(text_1_string);
+    }
 }
