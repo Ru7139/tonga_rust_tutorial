@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn main() {
     // 基本类型与tuple
     let basic_type: (bool, char, isize, usize, f64) = (true, 'A', 50isize, 99usize, 3.14);
@@ -119,5 +121,6 @@ fn main() {
 
     // 介绍std::collecntions::*
     // Hashmap, VecDeque
+    let hmap: HashMap<u32, String> = HashMap::new();
     // 迭代器
 }
