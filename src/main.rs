@@ -121,6 +121,8 @@ fn main() {
 
     // 介绍std::collecntions::*
     // Hashmap, VecDeque
-    let hmap: HashMap<u32, String> = HashMap::new();
+    let mut hmap: HashMap<u32, String> = HashMap::new();
+    hmap.entry(35).or_default();
+    dbg!(hmap);
     // 迭代器
 }
